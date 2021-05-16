@@ -3,13 +3,15 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import OneHotEncoder, RobustScaler
+from sklearn.preprocessing import OneHotEncoder
 
 from ml_project.entities.feature_params import FeatureParams
 from ml_project.entities.preprocess_params import PreprocessParams
 
 
-def process_categorical_features(categorical_df: pd.DataFrame, preprocess_params: PreprocessParams) -> pd.DataFrame:
+def process_categorical_features(
+    categorical_df: pd.DataFrame, preprocess_params: PreprocessParams
+) -> pd.DataFrame:
     categorical_pipeline = build_categorical_pipeline(preprocess_params)
     return pd.DataFrame(categorical_pipeline.fit_transform(categorical_df).toarray())
 
@@ -34,7 +36,7 @@ def build_numerical_pipeline() -> Pipeline:
         [
             ("impute", SimpleImputer(missing_values=np.nan, strategy="mean")),
             # ("scaler", RobustScaler())
-         ]
+        ]
     )
     return num_pipeline
 
@@ -43,7 +45,9 @@ def make_features(transformer: ColumnTransformer, df: pd.DataFrame) -> pd.DataFr
     return transformer.transform(df)
 
 
-def build_transformer(params: FeatureParams, preprocess_params: PreprocessParams) -> ColumnTransformer:
+def build_transformer(
+    params: FeatureParams, preprocess_params: PreprocessParams
+) -> ColumnTransformer:
     transformer = ColumnTransformer(
         [
             (

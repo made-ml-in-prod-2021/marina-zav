@@ -18,7 +18,7 @@ logger = logging.getLogger("logger")
 
 
 def train_model(
-    features: pd.DataFrame, target: pd.Series, train_params: TrainingParams
+        features: pd.DataFrame, target: pd.Series, train_params: TrainingParams
 ) -> SklearnRegressionModel:
     if train_params.model_type == "RandomForestClassifier":
         model = RandomForestClassifier(
@@ -50,7 +50,7 @@ def evaluate_model(predicts: np.ndarray, target: pd.Series) -> Dict[str, float]:
 
 
 def create_inference_pipeline(
-    model: SklearnRegressionModel, transformer: ColumnTransformer
+        model: SklearnRegressionModel, transformer: ColumnTransformer
 ) -> Pipeline:
     return Pipeline([("feature_part", transformer), ("model_part", model)])
 
