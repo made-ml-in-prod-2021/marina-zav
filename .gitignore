@@ -1,6 +1,11 @@
 # Data
-#data/
+data/
 .DS_Store
+models/
+notebooks/
+
+# IDE
+.idea/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
