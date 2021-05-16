@@ -3,6 +3,7 @@ data/
 .DS_Store
 models/
 notebooks/
+catboost_info/
 
 # IDE
 .idea/

@@ -13,6 +13,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ~~~
 ## Usage:
+### Train model
 ~~~
 python ml_project/train_pipeline.py configs/train_config.yaml
 ~~~

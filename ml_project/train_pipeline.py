@@ -51,14 +51,8 @@ def run_train_pipeline(training_pipeline_params):
     )
 
     inference_pipeline = create_inference_pipeline(model, transformer)
-    predicts = predict_model(
-        inference_pipeline,
-        val_df,
-    )
-    metrics = evaluate_model(
-        predicts,
-        val_target,
-    )
+    predicts = predict_model(inference_pipeline, val_df,)
+    metrics = evaluate_model(predicts, val_target,)
     with open(training_pipeline_params.metric_path, "w") as metric_file:
         json.dump(metrics, metric_file)
     logger.info(f"metrics is {metrics}")
@@ -66,6 +60,7 @@ def run_train_pipeline(training_pipeline_params):
     path_to_model = serialize_model(
         inference_pipeline, training_pipeline_params.output_model_path
     )
+    logger.info(f"end train pipeline")
     return path_to_model, metrics
 
 
