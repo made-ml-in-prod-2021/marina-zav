@@ -17,6 +17,10 @@ pip install -r requirements.txt
 ~~~
 python ml_project/train_pipeline.py configs/train_config.yaml
 ~~~
+### Predict
+~~~
+python ml_project/predict_pipeline.py models/model.pkl data/raw/to_predict.csv data/output.csv
+~~~
 
 ## Test:
 ~~~

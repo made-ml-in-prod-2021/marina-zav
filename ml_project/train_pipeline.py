@@ -42,7 +42,10 @@ def run_train_pipeline(training_pipeline_params):
     logger.info(f"train_df.shape is {train_df.shape}")
     logger.info(f"val_df.shape is {val_df.shape}")
 
-    transformer = build_transformer(training_pipeline_params.feature_params)
+    transformer = build_transformer(
+        training_pipeline_params.feature_params,
+        training_pipeline_params.preprocess_params,
+    )
     transformer.fit(train_df)
     train_features = make_features(transformer, train_df)
     logger.info(f"train_features.shape is {train_features.shape}")

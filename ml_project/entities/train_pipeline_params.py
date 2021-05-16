@@ -4,6 +4,7 @@ import yaml
 from marshmallow_dataclass import class_schema
 
 from .feature_params import FeatureParams
+from .preprocess_params import PreprocessParams
 from .split_params import SplittingParams
 from .train_params import TrainingParams
 
@@ -14,6 +15,7 @@ class TrainingPipelineParams:
     output_model_path: str
     metric_path: str
     splitting_params: SplittingParams
+    preprocess_params: PreprocessParams
     feature_params: FeatureParams
     train_params: TrainingParams
 

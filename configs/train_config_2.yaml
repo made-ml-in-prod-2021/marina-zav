@@ -4,6 +4,8 @@ metric_path: "models/metrics.json"
 splitting_params:
   val_size: 0.2
   random_state: 42
+preprocess_params:
+  ohe_drop: "if_binary"
 train_params:
   model_type: "CatBoostClassifier"
 feature_params:

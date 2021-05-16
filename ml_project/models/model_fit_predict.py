@@ -60,3 +60,10 @@ def serialize_model(model: object, output: str) -> str:
         pickle.dump(model, f)
     logger.info(f"trained model saved to {output}")
     return output
+
+
+def deserialize_model(path: str):
+    with open(path, "rb") as f:
+        model = pickle.load(f)
+    logger.info(f"model loaded from {path}")
+    return model
