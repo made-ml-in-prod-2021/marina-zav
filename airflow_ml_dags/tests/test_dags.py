@@ -28,16 +28,16 @@ def test_dag_train_model_load(dag_bag):
 def test_dag_get_prediction_load(dag_bag):
     assert "get_prediction" in dag_bag.dags
     assert len(dag_bag.dags["get_prediction"].tasks) == 4
-    
-  
+
+
 def test_dag_generate_data_structure(dag_bag):
     structure = {
         "get_data": [],
     }
     dag = dag_bag.dags["generate_data"]
     for name, task in dag.task_dict.items():
-        assert set(structure[name]) == task.downstream_task_ids  
- 
+        assert set(structure[name]) == task.downstream_task_ids
+
 
 def test_dag_train_model_structure(dag_bag):
     structure = {
