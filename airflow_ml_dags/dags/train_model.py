@@ -22,7 +22,8 @@ with DAG(
 ) as dag:
     data_sensor = FileSensor(
         task_id="1_data_sensor",
-        filepath=os.path.join(DATA_DIR, "{{ ds }}", "data.csv") ** SENSOR_ARGS,
+        filepath=os.path.join(DATA_DIR, "{{ ds }}", "data.csv"),
+        ** SENSOR_ARGS,
     )
 
     target_sensor = FileSensor(
