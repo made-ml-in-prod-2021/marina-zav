@@ -17,6 +17,4 @@ def make_predict(
 ):
     data = pd.DataFrame(data, columns=features)
     predicts = model.predict(data)
-    return [
-        HeartDiseaseModelResponse(class_id=class_id) for class_id in predicts
-    ]
+    return [HeartDiseaseModelResponse(class_id=class_id) for class_id in predicts]

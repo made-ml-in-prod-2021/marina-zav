@@ -10,7 +10,8 @@ from sklearn.pipeline import Pipeline
 
 from src.entities import (
     read_app_params,
-    HeartDiseaseModelRequest, HeartDiseaseModelResponse,
+    HeartDiseaseModelRequest,
+    HeartDiseaseModelResponse,
 )
 from src.models import make_predict, load_model
 
