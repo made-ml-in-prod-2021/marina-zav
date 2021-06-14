@@ -1,6 +1,6 @@
 # Data
 .DS_Store
-models/
+#models/
 notebooks/
 catboost_info/
 
