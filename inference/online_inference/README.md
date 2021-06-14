@@ -1,0 +1,1 @@
+docker build -t online_inference:v1 .
