@@ -1,3 +1,4 @@
+
 //kubectl installed
 //google cloud kit installed
 gcloud container clusters get-credentials cluster-1 --zone us-central1-c --project helical-clock-316811 --verbosity=debug
