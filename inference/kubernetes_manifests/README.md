@@ -13,6 +13,7 @@ Deploy: `kubectl apply -f kubernetes_manifests/online-inference-pod.yaml`
 А также чтобы после выключения хоста под с прописанными ресурсами гарантированно переехал на новый хост.
 `limits` - пороговые максимальные значения, в случае превышения этих значений K8s начнет
 ограничивать (по CPU) или перезапускать контейнер (если по RAM).
+(См скриншот в PR)
 
 ## 3. Liveness & Readiness
 Deploy: `kubectl apply -f kubernetes_manifests/online-inference-pod-probes.yaml`
@@ -20,6 +21,7 @@ Deploy: `kubectl apply -f kubernetes_manifests/online-inference-pod-probes.yaml`
 пока helth-check не прошел успешно (спустя 30 сек).
 liveness проба проверяет приложение периодически, пока контейнер запущен - и если возникнут какие-то проблемы,
 то K8s пометит контейнер как не Ready и запросы прекратят приниматься.
+(См скриншот в PR)
 
 ## 4. Replicaset
 Deploy: `kubectl apply -f kubernetes_manifests/online-inference-replicaset.yaml`
@@ -33,6 +35,7 @@ ReplicaSet дополнит подами с новой версией докер
 Deploy: `kubectl apply -f kubernetes_manifests/online-inference-deployment-blue-green.yaml`
 deployment-blue-green: Если поставить maxUnavailable=0, maxSurge=кол-ву реплик (8),
 то сначала поднимутся все поды с новой версией образа, а потом остановятся старые поды.
+(См скриншот в PR)
 Deploy: `kubectl apply -f kubernetes_manifests/online-inference-deployment-rolling-update.yaml`
 deployment-rolling-update: к примеру выставить maxUnavailable=2, maxSurge=4 (<кол-ва реплик),
 то обновление будет происходить плавно, в какой-то момент времени будут и старые и новые приложения.
