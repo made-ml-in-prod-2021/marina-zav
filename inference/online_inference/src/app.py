@@ -1,5 +1,6 @@
 import logging
 import sys
+import time
 from typing import List, Optional
 
 import uvicorn
@@ -37,6 +38,7 @@ def main():
 
 @app.on_event("startup")
 def load_app_model():
+    time.sleep(30)
     app_params = read_app_params("configs/app_config.yaml")
     logger.info("Start loading model")
     global model
@@ -47,6 +49,17 @@ def load_app_model():
 @app.get("/predict/", response_model=List[HeartDiseaseModelResponse])
 def predict(request: HeartDiseaseModelRequest):
     return make_predict(request.data, request.features, model)
+
+
+@app.get("/predict_new/", response_model=List[HeartDiseaseModelResponse])
+def predict(request: HeartDiseaseModelRequest):
+    # For checking new code version (new docker image)
+    return make_predict(request.data, request.features, model)
+
+
+@app.get("/healthz")
+def health() -> bool:
+    return not (model is None)
 
 
 def setup_app():
