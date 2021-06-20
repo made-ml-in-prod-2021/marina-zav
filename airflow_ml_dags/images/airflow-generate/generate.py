@@ -1,4 +1,5 @@
 import os
+
 import click
 from sklearn.datasets import load_iris
 
@@ -10,6 +11,7 @@ def load_data(output_dir: str):
     os.makedirs(output_dir, exist_ok=True)
     X.to_csv(os.path.join(output_dir, "data.csv"))
     y.to_csv(os.path.join(output_dir, "target.csv"))
+
 
 if __name__ == '__main__':
     load_data()
